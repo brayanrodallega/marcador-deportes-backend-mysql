@@ -13,8 +13,8 @@ app.set('port', 9000)
 const dbOptions = {
     host: 'localhost',
     port: '3306',
-    user: 'brayan',
-    password: 'N2@tc$ib%*9*Bg',
+    user: '',
+    password: '',
     database: 'library'
 }
 
