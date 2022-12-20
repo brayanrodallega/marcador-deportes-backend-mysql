@@ -5,17 +5,18 @@ const routes = require('./routes')
 const cors = require('cors')
 
 const app = express()
+const config = require('./config')
 
 app.use(cors())
 
-app.set('port', 9000)
+app.set('port', config.port_server || 3001)
 
 const dbOptions = {
-    host: 'localhost',
-    port: '3306',
-    user: '',
-    password: '',
-    database: 'library'
+    host: config.host_db,
+    port: config.port_db,
+    user: config.user_db,
+    password: config.password_db,
+    database: config.name_db,
 }
 
 // middelwares----------------------------------------------------
