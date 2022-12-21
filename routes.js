@@ -73,7 +73,7 @@ routes.get('/:table/:email/:clave', (req, res) => {
 })
 
 // Route for list register with limit
-routes.get('/:table/:limit/', (req, res) => {
+routes.get('/:table/:limit', (req, res) => {
     req.getConnection((err, conn) => {
         if (err) return res.send(err)
 
@@ -82,7 +82,7 @@ routes.get('/:table/:limit/', (req, res) => {
         "LEFT JOIN equipos t2 ON t1.equ_equipo1 = t2.equ_id " + 
         "LEFT JOIN equipos t3 ON t1.equ_equipo2 = t3.equ_id " + 
         "LEFT JOIN deportes t4 ON t1.dep_id = t4.dep_id " + 
-        "ORDER BY 1 DESC LIMIT " + req.params.lim;
+        `ORDER BY 1 DESC ${(req.params.limit === 'ALL') ? '' : 'LIMIT ' + req.params.limit}`
 
         conn.query(ssql, (err, rows) => {
             if (err) return res.send(err)
@@ -91,6 +91,7 @@ routes.get('/:table/:limit/', (req, res) => {
         })
     })
 })
+
 
 // Export routes for server.js to use.
 module.exports = routes;
