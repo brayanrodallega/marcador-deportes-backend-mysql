@@ -1,3 +1,3 @@
-# deportes-backend-misiontic
+# Backend Marcador de deportes🏆
 Backend de la aplicación web de Marcadores de Deportes en MisionTic
-# marcador-deportes-backend-mysql
+> Backend realizado en mysql
